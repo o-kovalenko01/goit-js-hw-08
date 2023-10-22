@@ -17,8 +17,9 @@ function saveForm() {
 
 const throttleSaveForm = throttle(saveForm, 500);
 
-emailInput.addEventListener('input', throttleSaveForm);
-messageTextarea.addEventListener('input', throttleSaveForm);
+feedbackForm.addEventListener('input', () => {
+  throttleSaveForm();
+});
 
 function loadForm() {
   const savedFormState = localStorage.getItem('feedback-form-state');
